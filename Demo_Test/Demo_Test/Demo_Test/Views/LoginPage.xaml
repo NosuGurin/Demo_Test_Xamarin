@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customs="clr-namespace:Demo_Test.Customs"
+             x:Class="Demo_Test.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid ColumnDefinitions="*,300,*" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+          RowDefinitions="140,60,Auto,Auto" Margin="0,0,0,0">
+
+        <Path Grid.Row="0" Grid.ColumnSpan="3" Fill="#4e92ff" Stroke="#4e92ff"  Aspect="Fill" 
+                      Data="m126.8675,108.63527l343,0l0,147.02589c-128.5,-58 -207.5,41.01956 -343,24.19026l0,-171.21615z" />
+        <Image
+                Grid.Column="1" Grid.Row="1"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                WidthRequest="70"
+                HeightRequest="70"
+                Source="user.png">
+            <Image.Clip>
+                <EllipseGeometry
+                    Center="35,35"
+                    RadiusX="35"
+                    RadiusY="35"/>
+            </Image.Clip>
+        </Image>
+
+        <StackLayout Grid.Column="1" Grid.Row="2">
+            <Grid RowSpacing="10"
+                      RowDefinitions="50,50,50"
+                      ColumnDefinitions="*" VerticalOptions="FillAndExpand"
+                      >
+
+                <Label
+                        Grid.Row="0"
+                        
+                        HorizontalTextAlignment="Center"
+                        FontFamily="DINBold"
+                        Text="LOGIN"
+                        TextColor="#222222"
+                        FontSize="22"/>
+
+                <Frame Grid.Row="1"  BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                            <Image Source="user.png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+
+                        <customs:CustomEntry Text="{Binding UserName}"
+                                Placeholder="Email" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame Grid.Row="2"  BackgroundColor="Transparent" BorderColor="DarkGray"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                            <Image Source="lock.png"  Aspect="AspectFit" Margin="5" />
+                        </Frame>
+
+                        <customs:CustomEntry Text="{Binding Password}"
+                                Placeholder="Password" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+
+            </Grid>
+            <Button Margin="0,10,0,0" Text="Đăng nhập" BackgroundColor="#3666b2" TextColor="White"
+                            Command="{Binding Xuly}" CornerRadius="30"/>
+        </StackLayout>
+
+        <StackLayout Grid.ColumnSpan="3" Grid.Row="3" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           WidthRequest="30"
+                           HeightRequest="30"
+                           HorizontalOptions="Center"
+                           Color="#1C5A0F"
+                           Margin="5"/>
+            <Label Text="{Binding Status}" TextColor="#1C5A0F" 
+                   VerticalTextAlignment="Center" 
+                   HorizontalTextAlignment="Center" Margin="5"/>
+
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

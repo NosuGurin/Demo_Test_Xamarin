@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_Test.Views.ListDataPage"
+             Title="Danh sách">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView Margin="5" ItemsSource="{Binding List_Data}" HasUnevenRows="True"
+                      HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="5" BackgroundColor="Azure" Margin="0,5">
+                                <StackLayout>
+                                    <Label Text="{Binding id}"/>
+                                    <Label Text="{Binding weather_state_name}"/>
+                                    <Label Text="{Binding weather_state_abbr}"/>
+                                    <Label Text="{Binding wind_direction_compass}"/>
+                                    <Label Text="{Binding created}"/>
+                                    <Label Text="{Binding applicable_date}"/>
+                                    <Label Text="{Binding min_temp}"/>
+                                    <Label Text="{Binding max_temp}"/>
+                                    <Label Text="{Binding the_temp}"/>
+                                    <Label Text="{Binding wind_speed}"/>
+                                    <Label Text="{Binding wind_direction}"/>
+                                    <Label Text="{Binding air_pressure}"/>
+                                    <Label Text="{Binding humidity}"/>
+                                    <Label Text="{Binding visibility}"/>
+                                    <Label Text="{Binding predictability}"/>
+                                    
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
